@@ -1,0 +1,26 @@
+.finance-overview {
+    height: 50px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.finance-overview div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+#column-two {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.income-overview {
+    color: #21D500;
+}
+
+.expense-overview {
+    color: #F05D23;
+}
