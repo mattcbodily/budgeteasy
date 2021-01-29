@@ -32,7 +32,7 @@ module.exports = {
         }
 
         delete foundUser.password
-        req.session.user(foundUser)
+        req.session.user = foundUser
         res.status(202).send(foundUser)
     },
     logout: (req, res) => {
