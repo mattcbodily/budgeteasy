@@ -1,0 +1,25 @@
+.modal-backdrop {
+    height: 100vh;
+    width: 100%;
+    background: rgba(0,0,0,.7);
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.transaction-modal {
+    height: 250px;
+    width: 325px;
+    background: #fafafa;
+    border-radius: 5px;
+}
+
+.transaction-modal form {
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
