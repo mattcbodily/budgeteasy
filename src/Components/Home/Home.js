@@ -17,13 +17,14 @@ const Home = props => {
         axios.get(`/api/transactions/${props.user.user_id}`)
             .then(res => {
                 setTransactions(res.data)
-                if (transactions.length) {
-                    setIncome(transactions.filter(el => el.category === 'income').reduce((acc, curr) => acc + curr.amount, 0))
-                    setExpenses(transactions.filter(el => el.category === 'expense').reduce((acc, curr) => acc + curr.amount, 0))
-                }
             })
             .catch(err => console.log(err))
     }, [props.user.user_id])
+
+    useEffect(() => {
+        setIncome(transactions.filter(el => el.category === 'income').reduce((acc, curr) => acc + curr.amount, 0))
+        setExpenses(transactions.filter(el => el.category === 'expense').reduce((acc, curr) => acc + curr.amount, 0))
+    }, [transactions])
 
     const getTransactions = () => {
         axios.get(`/api/transactions/${props.user.user_id}`)
@@ -35,7 +36,7 @@ const Home = props => {
 
     return (
         <main>
-            <ChartDisplay />
+            <ChartDisplay income={income} expenses={expenses} />
             <section className='finance-overview'>
                 <div>
                     <p>Income</p>
