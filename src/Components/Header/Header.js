@@ -1,13 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link, withRouter } from 'react-router-dom'
+import './Header.css'
 
 const Header = props => {
     return (
-        <header>
+        <header className='main-header'>
             {props.location.pathname !== '/'
               ? (
-                  <section>
+                  <section className='header-flex'>
                     <h2>Welcome, {props.firstName}</h2>
                     <nav>
                         <Link to='/dashboard'>Home</Link>

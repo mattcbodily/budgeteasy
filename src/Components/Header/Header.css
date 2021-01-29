@@ -1,0 +1,18 @@
+.main-header {
+    height: 50px;
+}
+
+.header-flex {
+    box-sizing: border-box;
+    height: 100%;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-flex nav {
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+}
