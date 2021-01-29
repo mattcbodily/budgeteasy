@@ -5,15 +5,16 @@ const TransactionModal = props => {
     const [category, setCategory] = useState('income')
     const [description, setDescription] = useState('')
     const [amount, setAmount] = useState('')
-    const [date, setDate] = useState('')
+    const [transactionDate, setTransactionDate] = useState('')
 
     const addTransaction = (e) => {
-        const { userId } = this.props
+        const { userId } = props
         e.preventDefault()
 
-        axios.post('/api/transaction', { userId, category, description, amount: parseFloat(amount), date })
+        axios.post('/api/transaction', { userId, category, description, amount: parseFloat(amount), transactionDate })
             .then(() => {
-                //close modal here
+                props.getTransactions()
+                props.setModalView(false)
             })
             .catch(err => console.log(err))
     }
@@ -28,8 +29,9 @@ const TransactionModal = props => {
                 </select>
                 <input value={description} onChange={e => setDescription(e.target.value)} />
                 <input type='number' value={amount} onChange={e => setAmount(e.target.value)} />
-                <input type='date' value={date} onChange={e => setDate(e.target.value)} />
+                <input type='date' value={transactionDate} onChange={e => setTransactionDate(e.target.value)} />
                 <button onClick={e => addTransaction(e)}>Add</button>
+                <button onClick={() => props.setModalView(false)}>Cancel</button>
             </form>
         </section>
     )

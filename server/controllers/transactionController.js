@@ -11,6 +11,8 @@ module.exports = {
         const { userId, category, description, amount, transactionDate } = req.body
         const db = req.app.get('db')
 
+        console.log('hit', req.body)
+
         db.transactions.add_transaction({ userId, category, description, amount, transactionDate })
         .then(() => res.sendStatus(200))
         .catch(err => res.status(500).send(err))
