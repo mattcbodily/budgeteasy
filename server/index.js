@@ -3,6 +3,7 @@ const express = require('express')
 const session = require('express-session')
 const massive = require('massive')
 const authCtrl = require('./controllers/authController')
+const transactionCtrl = require('./controllers/transactionController')
 const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env
 const app = express()
 
@@ -22,7 +23,11 @@ massive({
     app.listen(SERVER_PORT, () => console.log(`Server running on ${SERVER_PORT}`))
 })
 
-//Authentication Endpoints
+// Authentication Endpoints
 app.post('/api/register', authCtrl.register)
 app.post('/api/login', authCtrl.login)
 app.get('/api/logout', authCtrl.logout)
+
+// Transaction Endpoints
+app.get('/api/transactions/:id', transactionCtrl.getTransactions)
+app.post('/api/transaction', transactionCtrl.addTransaction)
