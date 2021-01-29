@@ -51,7 +51,8 @@ const Home = props => {
                     <p className={income - expenses >= 0 ? 'income-overview' : 'expense-overview'}>${(income - expenses).toFixed(2)}</p>
                 </div>
             </section>
-            <button onClick={() => setModalView(true)}>+</button>
+            <button onClick={() => setModalView(true)}>Add Transaction</button>
+            <h3>Recent Transactions</h3>
             {transactions.map(transaction => (
                 <Transaction key={transaction.transaction_id} transaction={transaction} />
             ))}
