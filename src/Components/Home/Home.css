@@ -4,7 +4,6 @@
     border-bottom: 1px solid black;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    margin-bottom: 10px;
 }
 
 .finance-overview div {
@@ -24,4 +23,8 @@
 
 .expense-overview {
     color: #F05D23;
+}
+
+.add-transaction-btn {
+    margin: 10px 0;
 }
