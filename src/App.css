@@ -27,11 +27,15 @@ button {
   box-sizing: border-box;
   height: 30px;
   width: 300px;
-  margin: 5px 0;
+  margin: 5px 0 10px 0;
   border-radius: 5px;
   border: none;
   font-size: 16px;
   background: #21D500;
   color: white;
   box-shadow: 0px 3px 3px gray;
+}
+
+span {
+  text-decoration: underline;
 }
